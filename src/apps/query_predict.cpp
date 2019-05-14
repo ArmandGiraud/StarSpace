@@ -7,6 +7,7 @@
 
 #include "../starspace.h"
 #include <iostream>
+#include <string>
 #include <boost/algorithm/string/predicate.hpp>
 
 using namespace std;
@@ -50,8 +51,13 @@ int main(int argc, char** argv) {
     vector<Predictions> predictions;
     sp.predictOne(query_vec, predictions);
     for (int i = 0; i < predictions.size(); i++) {
-      cout << i << "[" << predictions[i].first << "]: ";
-      sp.printDoc(cout, sp.baseDocs_[predictions[i].second]);
+      cout << "[" << predictions[i].first << "]: ";
+      //std::string docid = std::to_string(predictions[i].second);
+      cout << predictions[i].second;
+      cout << "\n";
+      //printf(" %d", predictions[i].second);
+      //sp.printDoc(cout, docid.c_str());
+      //sp.printDoc(cout, sp.baseDocs_[predictions[i].second]);
     }
     cout << "\n";
   }
